@@ -1,0 +1,30 @@
+<form #form="ngForm" autocomplete="off" (submit)='onSubmit(form)'>
+    <div class="from-group">
+        <div class="input-group">
+            <input type="hidden" name="Pid" [value]="service.formData.Pid">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white" ><i class="fas fa-cookie" [class.green-icon]="Product.valid" [class.red-icon]="Product.invalid && Product.touched" ></i></div>
+            </div>
+            <input name="Product" #Product="ngModel" [(ngModel)]="service.formData.Product" placeholder="Product Name" class="form-control" required >
+        </div>
+       
+
+    </div>
+<br>
+    <div class="from-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white" ><i class="fas fa-clipboard-list"></i></div>
+            </div>
+            <select name="Cid" #Cid="ngModel" [(ngModel)]="service.formData.Cid" class="form-control" required >
+                <option value=""  selected hidden>Choose Category</option>
+                <option *ngFor="let pd of service.listC" value="{{pd.Ctgr}}">{{pd.Ctgr}}</option>
+                <!-- <option>hi</option> -->
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" [disabled]="form.invalid"  type="submit"><i class="fas fa-server"></i> Submit</button>
+    </div> 
+</form>

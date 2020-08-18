@@ -1,0 +1,11 @@
+<table class="table table-hover">
+    <td>Category</td>
+    <td></td>
+    <tr *ngFor="let pd of service.list | paginate: { itemsPerPage: 6, currentPage: p }">   
+<td>{{pd.Ctgr}}</td>
+<td>
+    <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Cid)"></i>
+</td>
+    </tr>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

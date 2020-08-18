@@ -1,0 +1,19 @@
+<form #form="ngForm" autocomplete="off" (submit)='onSubmit(form)'>
+    <input type="hidden" name="Cid" [value]="service.formDataCategory.Cid">
+    <div class="from-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white" ><i class="fas fa-clipboard-list" [class.green-icon]="Ctgr.valid" [class.red-icon]="Ctgr.invalid && Ctgr.touched" ></i></div>
+            </div>
+            <input name="Ctgr" #Ctgr="ngModel" [(ngModel)]="service.formDataCategory.Ctgr" placeholder="Product Category" class="form-control" required >
+        </div>
+       
+
+    </div>
+
+    <br>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" [disabled]="form.invalid"  type="submit"><i class="fas fa-server"></i> Submit</button>
+    </div> 
+</form>
+
